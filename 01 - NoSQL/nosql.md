@@ -50,10 +50,15 @@ Os bancos de dados NoSQL escalam de forma mais simples, então quando sua massa 
 # Contras de utilizar NoSQL
 Os bancos de dados NoSQL também possuem disvantagens, uma delas é que eles são de certa forma uma tecnologia mais recente, enquanto temos o SQL desde 1970, os bancos NoSQL começacaram a se popularizar nos anos 2000. Outro ponto é que cada tipo de banco de dados NoSQL pode oferecer uma linguagem para as queries diferente e isso pode demandar certo tempo para aprendizado.
 
+---
 ACID:
+
 A - Atomicidade (atomicity)
+
 C - Consistência (consistency)
+
 I - Isolação (isolation)
+
 D - Durabilidade (durability)
 
 # Referências
