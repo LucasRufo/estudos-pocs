@@ -33,7 +33,7 @@ namespace M220N.Repositories
         public MoviesRepository(IMongoClient mongoClient)
         {
             _mongoClient = mongoClient;
-            var camelCaseConvention = new ConventionPack {new CamelCaseElementNameConvention()};
+            var camelCaseConvention = new ConventionPack { new CamelCaseElementNameConvention() };
             ConventionRegistry.Register("CamelCase", camelCaseConvention, type => true);
 
             _moviesCollection = mongoClient.GetDatabase("sample_mflix").GetCollection<Movie>("movies");
@@ -59,7 +59,7 @@ namespace M220N.Repositories
             string sort = DefaultSortKey, int sortDirection = DefaultSortOrder,
             CancellationToken cancellationToken = default)
         {
-            var skip =  moviesPerPage * page;
+            var skip = moviesPerPage * page;
             var limit = moviesPerPage;
 
 
@@ -122,7 +122,15 @@ namespace M220N.Repositories
             //   .Project(...)
             //   .ToListAsync(cancellationToken);
 
-            return null;
+            var filter = Builders<Movie>.Filter.In("countries", countries);
+
+            var projection = Builders<Movie>.Projection.Include(m => m.Title).Include(m => m.Id);
+
+            return await _moviesCollection
+                .Find(filter)
+                .SortByDescending(m => m.Title)
+                .Project<MovieByCountryProjection>(projection)
+                .ToListAsync(cancellationToken);
         }
 
         /// <summary>
@@ -197,6 +205,15 @@ namespace M220N.Repositories
                .Find(...)
                .ToListAsync(cancellationToken);*/
 
+            var filter = Builders<Movie>.Filter.In("genres", genres);
+
+            returnValue = await _moviesCollection
+                .Find(filter)
+                .Limit(limit)
+                .Skip(page * limit)
+                .Sort(sort)
+                .ToListAsync(cancellationToken);
+
             // // TODO Ticket: Paging
             // TODO Ticket: Paging
             // Modify the code you added in the Text and Subfield ticket to
@@ -229,7 +246,7 @@ namespace M220N.Repositories
             var matchStage = new BsonDocument("$match",
                 new BsonDocument("cast",
                     new BsonDocument("$in",
-                        new BsonArray {cast})));
+                        new BsonArray { cast })));
 
             //I limit the number of results
             var limitStage = new BsonDocument("$limit", DefaultMoviesPerPage);
@@ -261,7 +278,7 @@ namespace M220N.Repositories
             // We build another pipeline here to count the number of
             // movies that match _without_ the limit, skip, and facet stages
             var count = BuildAndRunCountPipeline(matchStage, sortStage);
-            result.Count = (int) count.Values.First();
+            result.Count = (int)count.Values.First();
 
             return result;
         }
