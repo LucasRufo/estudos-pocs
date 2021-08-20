@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "b766532c-82fc-4b97-8e59-1725f24ce1b7",
+		"name": "MongoPoc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/users/612027e9957caaf424bd72d5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								"612027e9957caaf424bd72d5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Lucas Rufo de Oliveira\",\r\n  \"emails\": [\r\n    {\r\n      \"address\": \"teste@teste.com\"\r\n    },\r\n    {\r\n        \"address\": \"teste2@teste.com\"\r\n    }\r\n  ],\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1199993333\",\r\n      \"phoneType\": 1\r\n    },\r\n    {\r\n      \"number\": \"1188887777\",\r\n      \"phoneType\": 2\r\n    }\r\n  ],\r\n  \"address\": {\r\n    \"street\": \"Av. Paulista\",\r\n    \"city\": \"São Paulo\",\r\n    \"country\": \"Brasil\",\r\n    \"zipCode\": \"0777888\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6120277ce539ce9758d272bc\",\r\n    \"name\": \"Lucas Rufo de Oliveira 10\",\r\n    \"emails\": [\r\n        {\r\n            \"address\": \"teste5@teste.com\"\r\n        },\r\n        {\r\n            \"address\": \"teste2@teste.com\"\r\n        }\r\n    ],\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"1199993333\",\r\n            \"phoneType\": 2\r\n        },\r\n        {\r\n            \"number\": \"1188887777\",\r\n            \"phoneType\": 2\r\n        }\r\n    ],\r\n    \"address\": {\r\n        \"street\": \"Av. Paulista\",\r\n        \"city\": \"São Paulo\",\r\n        \"country\": \"Brasil\",\r\n        \"zipCode\": \"0777888\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/users/6120277ce539ce9758d272bc",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								"6120277ce539ce9758d272bc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/users/6120277ce539ce9758d272bc",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								"6120277ce539ce9758d272bc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
