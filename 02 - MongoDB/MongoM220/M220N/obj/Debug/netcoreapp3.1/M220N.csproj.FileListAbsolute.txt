@@ -124,3 +124,4 @@ C:\source\estudos-pocs\02 - MongoDB\MongoM220\M220N\obj\Debug\netcoreapp3.1\M220
 C:\source\estudos-pocs\02 - MongoDB\MongoM220\M220N\obj\Debug\netcoreapp3.1\M220N.dll
 C:\source\estudos-pocs\02 - MongoDB\MongoM220\M220N\obj\Debug\netcoreapp3.1\M220N.pdb
 C:\source\estudos-pocs\02 - MongoDB\MongoM220\M220N\obj\Debug\netcoreapp3.1\M220N.genruntimeconfig.cache
+C:\source\estudos-pocs\02 - MongoDB\MongoM220\M220N\obj\Debug\netcoreapp3.1\M220N.csproj.AssemblyReference.cache

@@ -54,7 +54,9 @@ namespace M220N.Repositories
             // Retrieve the user document corresponding with the user's email.
             //
             // // return await _usersCollection.Find(...)
-            return null;
+            var filter = Builders<User>.Filter.Eq(m => m.Email, email);
+
+            return await _usersCollection.Find(filter).FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -70,7 +72,15 @@ namespace M220N.Repositories
         {
             try
             {
-                var user = new User();
+                var user = new User() 
+                {
+                    Name = name,
+                    Email = email,
+                    HashedPassword = PasswordHashOMatic.Hash(password)
+                };
+
+                await _usersCollection.WithWriteConcern(new WriteConcern("majority")).InsertOneAsync(user);
+
                 // TODO Ticket: User Management
                 // Create a user with the "Name", "Email", and "HashedPassword" fields.
                 // DO NOT STORE CLEAR-TEXT PASSWORDS! Instead, use the helper class
@@ -118,6 +128,12 @@ namespace M220N.Repositories
                     return new UserResponse(false, "The password provided is not valid");
                 }
 
+                var filter = Builders<Session>.Filter.Eq(m => m.UserId, user.Email);
+
+                var update = Builders<Session>.Update.Set(m => m.UserId, user.Email).Set(m => m.Jwt, user.AuthToken);
+
+                var updateOptions = new UpdateOptions() { IsUpsert = true };
+
                 // TODO Ticket: User Management
                 // Locate the session object in the `sessions` collection by
                 // matching the "user_id" field with the email passed to this function.
@@ -131,6 +147,8 @@ namespace M220N.Repositories
                 //  new BsonDocument(...),
                 //  Builders<Session>.Update.Set(...).Set(...),
                 //  new UpdateOptions(...));
+
+                await _sessionsCollection.UpdateOneAsync(filter, update, updateOptions);
 
                 storedUser.AuthToken = user.AuthToken;
                 return new UserResponse(storedUser);
@@ -152,8 +170,10 @@ namespace M220N.Repositories
         {
             // TODO Ticket: User Management
             // Delete the document in the `sessions` collection matching the email.
+
+            var filter = Builders<Session>.Filter.Eq(m => m.UserId, email);
             
-            await _sessionsCollection.DeleteOneAsync(new BsonDocument(), cancellationToken);
+            await _sessionsCollection.DeleteOneAsync(filter, cancellationToken);
             return new UserResponse(true, "User logged out.");
         }
 
@@ -167,7 +187,10 @@ namespace M220N.Repositories
         {
             // TODO Ticket: User Management
             // Retrieve the session document corresponding with the user's email.
-            return await _sessionsCollection.Find(new BsonDocument()).FirstOrDefaultAsync();
+
+            var filter = Builders<Session>.Filter.Eq(m => m.UserId, email);
+
+            return await _sessionsCollection.Find(filter).FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -217,7 +240,13 @@ namespace M220N.Repositories
                   reflect the new information in preferences.
                 */
 
-                UpdateResult updateResult = null;
+                var filter = Builders<User>.Filter.Eq(m => m.Email, email);
+
+                var update = Builders<User>.Update.Set(m => m.Preferences, preferences);
+
+                var updateOptions = new UpdateOptions() { IsUpsert = false };
+
+                UpdateResult updateResult = await _usersCollection.UpdateOneAsync(filter, update, updateOptions);
                 // TODO Ticket: User Preferences
                 // Use the data in "preferences" to update the user's preferences.
                 //

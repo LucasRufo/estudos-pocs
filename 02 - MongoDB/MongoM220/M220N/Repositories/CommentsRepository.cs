@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using M220N.Models;
@@ -47,6 +48,8 @@ namespace M220N.Repositories
                     MovieId = movieId
                 };
 
+                await _commentsCollection.InsertOneAsync(newComment);
+
                 // Ticket: Add a new Comment
                 // Implement InsertOneAsync() to insert a
                 // new comment into the comments collection.
@@ -83,7 +86,13 @@ namespace M220N.Repositories
             // // new UpdateOptions { ... } ,
             // // cancellationToken);
 
-            return null;
+            var filter = Builders<Comment>.Filter.Eq(m => m.Email, user.Email) & Builders<Comment>.Filter.Eq(m => m.Id, commentId);
+
+            var update = Builders<Comment>.Update.Set(m => m.Text, comment).Set(m => m.MovieId, movieId);
+
+            var updateOptions = new UpdateOptions() { IsUpsert = false };
+
+            return await _commentsCollection.UpdateOneAsync(filter, update, updateOptions);
         }
 
         /// <summary>
@@ -104,7 +113,7 @@ namespace M220N.Repositories
             _commentsCollection.DeleteOne(
                 Builders<Comment>.Filter.Where(
                     c => c.MovieId == movieId
-                         && c.Id == commentId));
+                         && c.Id == commentId && c.Email == user.Email));
 
             return await _moviesRepository.GetMovieAsync(movieId.ToString(), cancellationToken);
         }
@@ -122,7 +131,15 @@ namespace M220N.Repositories
             */
             try
             {
-                List<ReportProjection> result = null;
+                var sort = Builders<ReportProjection>.Sort.Descending(m => m.Count);
+
+                List <ReportProjection> result = await _commentsCollection
+                    .WithReadConcern(new ReadConcern(ReadConcernLevel.Majority))
+                    .Aggregate()
+                    .Group(m => m.Email, ac => new ReportProjection() { Id = ac.Key, Count = ac.Count() })
+                    .Sort(sort)
+                    .Limit(20)
+                    .ToListAsync();
                 // TODO Ticket: User Report
                 // Return the 20 users who have commented the most on MFlix. You will need to use
                 // the Group, Sort, Limit, and Project methods of the Aggregation pipeline.

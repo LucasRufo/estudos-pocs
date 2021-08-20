@@ -7,3 +7,7 @@ O MongoDB Driver oferece uma grande variedade de formas de filtramos as collecti
 Podemos realizar projeções nas collections do MongoDB.
 
 A classe `Builders` oferece formas de criarmos filtros, sorts e projections de forma simples.
+
+Sempre devemos utilizar o Connection Pooling
+Sempre devemos especificar o `wtimeout` para escritas com majority
+Sempre devemos tratar erros de ServerSelecionTimeout

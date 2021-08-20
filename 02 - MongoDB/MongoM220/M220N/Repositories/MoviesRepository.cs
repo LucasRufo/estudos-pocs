@@ -86,12 +86,25 @@ namespace M220N.Repositories
             {
                 return await _moviesCollection.Aggregate()
                     .Match(Builders<Movie>.Filter.Eq(x => x.Id, movieId))
+                    .Lookup(
+                        _commentsCollection,
+                        m => m.Id,
+                        c => c.MovieId,
+                        (Movie m) => m.Comments
+                    )
                     // Ticket: Get Comments
                     // Add a lookup stage that includes the
                     // comments associated with the retrieved movie
                     .FirstOrDefaultAsync(cancellationToken);
             }
-
+            catch (MongoDuplicateKeyException ex)
+            {
+                return null;
+            }
+            catch (FormatException ex)
+            {
+                return null;
+            }
             catch (Exception ex)
             {
                 // TODO Ticket: Error Handling
@@ -101,6 +114,7 @@ namespace M220N.Repositories
 
                 throw;
             }
+
         }
 
         /// <summary>
@@ -266,8 +280,10 @@ namespace M220N.Repositories
             {
                 matchStage,
                 sortStage,
+                limitStage,
+                skipStage,
+                facetStage,
                 // add the remaining stages in the correct order
-
             };
 
             // I run the pipeline you built
