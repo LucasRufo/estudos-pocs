@@ -21,6 +21,9 @@ Escrever muitas vezes me ajuda a entender melhor e assimilar alguns conteúdos q
 - Asp.Net Core
 - Docker
 - Docker-Compose
+- Angular
+- React
+- NextJS
 - Fundamentos Cloud
 - AWS (Deploy)
 - Cache
