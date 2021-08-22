@@ -18,6 +18,7 @@ Escrever muitas vezes me ajuda a entender melhor e assimilar alguns conteúdos q
 
 #### Não estudarei os itens necessariamente nessa ordem.
 
+- Asp.Net Core
 - Docker
 - Docker-Compose
 - Fundamentos Cloud
@@ -27,4 +28,6 @@ Escrever muitas vezes me ajuda a entender melhor e assimilar alguns conteúdos q
 - Microsserviços
 - DDD
 - Performance no .NET
+- Kafka
+- RabbitMQ
 - F# (?)
