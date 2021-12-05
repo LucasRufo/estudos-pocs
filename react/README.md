@@ -1,0 +1,36 @@
+# React
+
+## Fundamentos do React
+
+React é uma biblioteca utilizada para construir interfaces. O React é um framework SPA (Single Page Application), então basicamente carregamos apenas um arquivo HTML no inicio da interação com a interface e depois vamos recarregando apenas o conteúdo principal da página. 
+
+Para começar com o React precisamos de 2 pacotes, o próprio React e o React-Dom, que é a forma que temos de trabalhar com o React na Web. Ela permite que o React entenda como se comunicar com a arvore de elementos HTML.
+
+- Babel
+É uma ferramenta que converte nosso código Javascript para um código que todos os browsers consigam entender. Um exemplo disso é a conversão de JSX. 
+
+- Webpack 
+É uma ferramenta de bundle, que carrega os nossos arquivos da aplicação da forma correta.
+
+No React, um componente é uma função, que por convenção começa com letra maiscula e retorna JSX. Também mantemos o padrão de ter apenas um componente por arquivo. 
+
+O React também apresenta o conceito de estado, basicamente estado são variáveis que o React irá observar as mudanças e a cada mudança no valor, ele irá renderizar novamente a interface que apresenta essas variáveis.
+
+Revisão
+- O que é o React
+- Configuração do Webpack	e do Babel
+- Componentes
+- Estado
+- Hooks UseState e UseEffect
+- Props
+- Imutabilidade
+- Renderização
+- Typescript
+
+## Primeiras aplicações com React
+
+CSS-in-JS, abordagem que utiliza o CSS dentro dos arquivos Javascript. Uma das principais bibliotecas para isso é a Styled Components.
+
+
+
+
