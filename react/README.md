@@ -1,6 +1,6 @@
 # React
 
-Anotações próprias.
+## Anotações próprias
 
 Coisas que preciso buscar depois:
 
