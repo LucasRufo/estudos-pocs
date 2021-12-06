@@ -1,6 +1,19 @@
 # React
 
-## Fundamentos do React
+Anotações próprias.
+
+Coisas que preciso buscar depois:
+
+- Shadow DOM
+- Algoritmo de reconciliação do React
+
+---
+
+## Ignite React
+
+Anotações referentes ao Ignite da Rocketseat.
+
+### Fundamentos do React
 
 React é uma biblioteca utilizada para construir interfaces. O React é um framework SPA (Single Page Application), então basicamente carregamos apenas um arquivo HTML no inicio da interação com a interface e depois vamos recarregando apenas o conteúdo principal da página. 
 
@@ -27,9 +40,21 @@ Revisão
 - Renderização
 - Typescript
 
-## Primeiras aplicações com React
+### Primeiras aplicações com React
 
 CSS-in-JS, abordagem que utiliza o CSS dentro dos arquivos Javascript. Uma das principais bibliotecas para isso é a Styled Components.
+
+Revisão (não necessariamente na ordem dos módulos)
+- Exportando Assets do Figma
+- CSS-in-JS
+- Styled Components
+- Axios
+- Como utilizar Styled Components
+- Modal 
+- MirageJS (ferramenta muito boa)
+- Formulários
+- Componentização
+- Context API
 
 
 
