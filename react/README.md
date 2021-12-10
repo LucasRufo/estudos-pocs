@@ -56,6 +56,20 @@ Revisão (não necessariamente na ordem dos módulos)
 - Componentização
 - Context API
 
+### Fundamentos do NextJS
+
+Revisão (não necessariamente na ordem dos módulos)
+- O que é o NextJS
+- Porque utilizar o NextJS
+- Imagens no NextJS
+- _app.tsx e _document.tsx
+- As funções getServerSideProps e getInitialProps
+- Revalidate
+- API routes
+- Quando utilizamos SSR / SSG
+- Chamadas API server-side não são balas de prata
+
+
 
 
 
