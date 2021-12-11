@@ -13,7 +13,7 @@ Coisas que preciso buscar depois:
 
 Anotações referentes ao Ignite da Rocketseat.
 
-### Fundamentos do React
+### 1 - Fundamentos do React
 
 React é uma biblioteca utilizada para construir interfaces. O React é um framework SPA (Single Page Application), então basicamente carregamos apenas um arquivo HTML no inicio da interação com a interface e depois vamos recarregando apenas o conteúdo principal da página. 
 
@@ -40,7 +40,7 @@ Revisão
 - Renderização
 - Typescript
 
-### Primeiras aplicações com React
+### 2- Primeiras aplicações com React
 
 CSS-in-JS, abordagem que utiliza o CSS dentro dos arquivos Javascript. Uma das principais bibliotecas para isso é a Styled Components.
 
@@ -56,7 +56,7 @@ Revisão (não necessariamente na ordem dos módulos)
 - Componentização
 - Context API
 
-### Fundamentos do NextJS
+### 3 - Fundamentos do NextJS
 
 Revisão (não necessariamente na ordem dos módulos)
 - O que é o NextJS
@@ -68,6 +68,25 @@ Revisão (não necessariamente na ordem dos módulos)
 - API routes
 - Quando utilizamos SSR / SSG
 - Chamadas API server-side não são balas de prata
+- O que é e para que serve o Stripe
+- Utilizando o Stripe com NextJS
+
+### 4 - Back-end no front-end
+
+Revisão (não necessariamente na ordem dos módulos)
+- O que é o FaunaDB
+- Quando utilizar FaunaDB
+- FaunaDB Index
+- API Routes com parametrização
+- Next Auth
+- Autenticação com Github
+- Estratégias de autenticação no front-end
+- Cookies combinam bem com NextJS
+- Como criar checkout session no Stripe
+- Como escutar eventos webhooks do Stripe
+
+
+
 
 
 
