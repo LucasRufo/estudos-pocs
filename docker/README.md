@@ -18,8 +18,41 @@ Imagem: É o template criado a partir do Dockerfile, que diz para o Docker todos
 
 Container: É a instância de uma imagem. Você pode criar, iniciar, parar ou deletar um container utilizando a CLI do Docker. É o ambiente isolado que desejamos rodar nossas aplicações, mas é configuravel até que ponto queremos essa isolação. Quando remover um container, toda mudança ou estado que estava dentro do container é perdido.
 
+## Diferença do Docker para Máquinas Virtuais
+
+A grande diferença entre utilizar Docker e utilizar máquinas virtuais é que o Docker consegue compartilhar grande parte dos recursos do kernel do computador Host. Com máquinas virtuais temos que para cada máquina virtual ter um sistema operacional inteiro, enquanto que com o Docker compartilhamos diversos recursos entre os containers.
+
+## Principais comandos Docker
+
+Para buscar as imagens que estão disponíveis no Host:
+
+```bash
+docker images
+```
+
+Para buscar os containers que estão rodando no Host:
+
+```bash
+docker ps
+```
+
+Esse comando ainda aceita parâmetros, como por exemplo:
+
+`-a` ou `--all` para mostrar todos os containers, mesmos os que estão parados.
+
+## Volumes
+
+Volumes são diretórios externos aos containers e que podem ser acessados pelos containers. O principal uso dos volumes é persistir arquivos, já que os próprios diretórios dos containers são voláteis e com a morte de um container todos os arquivos escritos lá são perdidos.
+
+Volumes são inicializados quando os containers são criados e caso ocorra de já haver dados no diretório que você está montando o volume, aqueles dados serão copiados para o volume.
+
+## Multi-stage
+
+Multi-stage é uma forma de criarmos uma espécie de pipeline via Dockerfile, podendo utilizar o comando `FROM` mais de uma vez, assim podemos usar uma imagem para buildar nossa aplicação e outra para rodar. A maior vantagem é não precisarmos manter as ferramentas de build da nossa aplicação na imagem final. O tamanho das imagens pode ter uma diferença brutal se o recurso for bem utilizado e o docker também é inteligente para utilizar cache em alguns passos e o processo de build da imagem também fica mais rápido.
+
 ## Referências
 
 https://docs.docker.com/get-started/overview/
 https://stack.desenvolvedor.expert/appendix/docker/comandos.html
+https://github.com/badtuxx/DescomplicandoDocker
 
