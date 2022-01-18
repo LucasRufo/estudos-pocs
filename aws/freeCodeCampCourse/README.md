@@ -24,3 +24,13 @@ Para conectar nas instâncias podemos usar SSH, seguindo os passos mostrados no 
 Podemos colocar Roles do IAM nas nossas instâncias, para que elas possam acessar outros serviços.
 
 Também é possivel utilizar o Elastic Load Balancer para ficar na frente das nossas máquinas do EC2 e rotear o trafego para máquinas diferentes conforme a carga de requisições.
+
+## Section 3 - Storage Services
+
+Os principais serviços relacionados a armazenamento são: Elastic Block Store, Elastic File System e o S3.
+
+Buckets S3 podem ser públicos ou privados e os buckets sempre tem que possuir um nome único.
+
+Também é possível habilitar versionamento nos buckets S3, para que seja possível fazer backup e restaurar arquivos.
+
+## Section 3 - Databases
