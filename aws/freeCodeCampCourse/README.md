@@ -33,4 +33,25 @@ Buckets S3 podem ser públicos ou privados e os buckets sempre tem que possuir u
 
 Também é possível habilitar versionamento nos buckets S3, para que seja possível fazer backup e restaurar arquivos.
 
-## Section 3 - Databases
+## Section 4 - Databases
+
+A AWS possui o RDS (Relational Database Service) que oferece um serviço de banco de dados relacional gerenciado. As instâncias rodam no EC2.
+
+As opções de banco de dados são: Aurora (DB da própia AWS), MySQL, MariaDB, PostgreSQL, Oracle e SQL Server.	
+
+É possível adicionar réplicas de leitura no RDS, assim você pode diminuir a carga do seu banco de dados principal.
+
+A AWS oferece também o DynamoDB, que é um banco de dados NoSQL da própria AWS.
+
+## Section 5 - Automation
+
+O Cloudformation é um serviço da AWS que permite a definição da nossa infraestrutura em forma de código JSON ou YAML. Então podemos provisionar diversos outros serviços e conecta-los utilizando os templates.
+
+O Elastic Beanstalk é uma abstração em cima dos serviços como o EC2. Ele permite que o desenvolvedor faça o deploy das suas aplicações de forma mais rápida, sem se preocupar muito com a configuração "por debaixo dos panos".
+
+O Elastic Beanstalk se encaixa como um PaaS (Platform as a Service).
+
+## Section 6 - CI/CD
+
+
+
