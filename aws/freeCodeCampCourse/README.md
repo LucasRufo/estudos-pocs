@@ -53,5 +53,18 @@ O Elastic Beanstalk se encaixa como um PaaS (Platform as a Service).
 
 ## Section 6 - CI/CD
 
+Para CI e CD a AWS oferece alguns serviços como o CodeCommit, CodeBuild, CodeDeploy, CodePipeline e o CodeStar.
+
+## Section 7 - DNS e CDN
+
+Para DNS a AWS oferece o Route53, ele oferece alguns serviços como registros de domínios, hosted zones, health checks de instâncias EC2 e outros.
+
+Para CDN temos o CloudFront, você cria uma "origin" e esse contéudo é distribuído para diversos outros servidores ao redor do mundo. Então assim os usuários podem se acessar o seu conteúdo atráves do servidor mais próximo e com menos latência.
+
+## Section 8 - Docker e Serveless
+
+A AWS oferece para containers o ECS (Elastic Container Service), nele você pode executar seus containers Docker. Dentro do ECS você pode utilizar o Fargate ou o EC2 para executar as "tasks".
+
+Também temos a Lambda, que é o serviço da AWS que executa funções Serverless. Serveless significa que não precisamos cuidar da infraestrutura necessária para executar a função, a própria AWS cuida disso. Você também paga por uso nesse caso, então só pagamos quando o código executa.
 
 
