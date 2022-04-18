@@ -8,12 +8,6 @@ Esse repositório contém alguns arquivos markdown que escrevo como forma de est
 
 Escrever muitas vezes me ajuda a entender melhor e assimilar alguns conteúdos quando estou estudando certa tecnologia, também gosto de montar alguns projetos pequenos para entender como aquela tecnologia funciona na prática.
 
-## Itens que tenho estudado
-
-- 01 - [NoSQL](https://github.com/LucasRufo/estudos-pocs/tree/main/01%20-%20NoSQL)
-- 02 - [MongoDB](https://github.com/LucasRufo/estudos-pocs/tree/main/02%20-%20MongoDB)
-  - [POC com .Net 5.0 e MongoDB](https://github.com/LucasRufo/estudos-pocs/tree/main/02%20-%20MongoDB/MongoPOC)
-
 ## Roadmap
 
 #### Não estudarei os itens necessariamente nessa ordem.
